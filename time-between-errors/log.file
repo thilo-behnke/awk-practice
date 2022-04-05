@@ -1,0 +1,25 @@
+(Sun Sep 13 23:02:05 2009) [INFO]: Beginning Wbemupgd.dll Registration
+(Sun Sep 13 23:02:05 2009) [INFO]: Current build of wbemupgd.dll is 5.1.2600.2180 (xpsp_sp2_rtm.040803-2158)
+(Sun Sep 13 23:02:05 2009) [INFO]: Beginning Core Upgrade
+(Sun Sep 13 23:02:05 2009) [INFO]: Beginning MOF load
+(Sun Sep 13 23:02:05 2009) [WARN]: Processing C:\WINDOWS\system32\WBEM\cimwin32.mof
+(Sun Sep 13 23:02:09 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\cimwin32.mfl
+(Sun Sep 13 23:02:12 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\system.mof
+(Sun Sep 13 23:02:16 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\evntrprv.mof
+(Sun Sep 13 23:02:16 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\hnetcfg.mof
+(Sun Sep 13 23:02:16 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\sr.mof
+(Sun Sep 13 23:02:16 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\dgnet.mof
+(Sun Sep 13 23:02:16 2009) [ERROR]: Processing C:\WINDOWS\system32\WBEM\whqlprov.mof
+(Sun Sep 13 23:02:16 2009) [INFO]: Processing C:\WINDOWS\system32\WBEM\ieinfo5.mof
+(Sun Sep 13 23:02:17 2009) [INFO]: MOF load completed.
+(Sun Sep 13 23:02:17 2009) [INFO]: Beginning MOF load
+(Sun Sep 13 23:02:17 2009) [ERROR]: MOF load completed.
+(Sun Sep 13 23:02:17 2009) [DEBUG]: Core Upgrade completed.
+(Sun Sep 13 23:02:17 2009) [DEBUG]: Wbemupgd.dll Service Security upgrade succeeded.
+(Sun Sep 13 23:02:17 2009) [INFO]: Beginning WMI(WDM) Namespace Init
+(Sun Sep 13 23:02:20 2009) [INFO]: WMI(WDM) Namespace Init Completed
+(Sun Sep 13 23:02:20 2009) [INFO]: ESS enabled
+(Sun Sep 13 23:02:20 2009) [ERROR]: ODBC Driver <system32>\wbemdr32.dll not present
+(Sun Sep 13 23:02:20 2009) [INFO]: Successfully verified WBEM OBDC adapter (incompatible version removed if it was detected).
+(Sun Sep 13 23:02:20 2009) [INFO]: Wbemupgd.dll Registration completed.
+(Sun Sep 13 23:02:20 2009) [INFO]:
