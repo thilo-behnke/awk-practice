@@ -37,6 +37,7 @@ BEGIN {
 	last_rank = rank 
 }
 
+# Group by year
 {
 	if (match($8, /^"[^,]+,\s([0-9]{4})/, m)) {
 		year = m[1] 
@@ -47,7 +48,6 @@ BEGIN {
 		}
 	}
 }
-
 
 END {
 	PROCINFO["sorted_in"] = "@ind_str_asc"
