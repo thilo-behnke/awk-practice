@@ -23,6 +23,7 @@ BEGIN {
 	}
 }
 {
+	# Corrupt list, entries at the same rank are missing the rank field -> get it from the last entry.
 	rank = $1
 	if ($1 !~ /^[0-9]+\s*$/) {
 		last_value = $1
