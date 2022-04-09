@@ -4,7 +4,7 @@ BEGIN {
 	print "YEARS SORTED BY COUNT OF BEST SELLING VIDEO GAMES"
 	print "================================================="
 	FPAT = "([^,]+)|(\"[^\"]+\")"
-	OFS = ","
+	OFS = "__"
 	last_rank = 1
 }
 
@@ -38,25 +38,62 @@ BEGIN {
 	last_rank = rank 
 }
 
+{
+	# Change field delimiter to __
+	for (i = 0; i <= NF; i++) {
+		$i = $i
+	}
+}
+
 # Group by year
 {
 	if (match($8, /^"[^,]+,\s([0-9]{4})/, m)) {
 		year = m[1] 
 		if (by_year[year] == "") {
-			by_year[year] = " - " $0 
+			by_year[year] = $0 
 		} else {
-			by_year[year] = by_year[year] "\n - " $0
+			by_year[year] = by_year[year] ";;" $0
 		}
 	}
 }
 
 END {
-	PROCINFO["sorted_in"] = "@ind_str_asc"
-	for (key in by_year) {
+	PROCINFO["sorted_in"] = "cmp_by_entries"
+	for (year in by_year) {
+		PROCINFO["sorted_in"] = "@unsorted"
+		split(by_year[year], by_year_entries, ";;")
+
+		total_units_sold = 0
+		for (entry in by_year_entries) {
+			split(by_year_entries[entry], year_data, "__")
+			gsub("\"", "", year_data[3])
+			gsub(",", "", year_data[3])
+			total_units_sold += year_data[3] 
+		}
+		
+		stats = length(by_year_entries) " bestsellers with " total_units_sold " total units sold"
+		print "year " year ": " stats
+
+		for (entry in by_year_entries) {
+			split(by_year_entries[entry], year_data, "__")
+			gsub("^\"", "<", year_data[3])
+			gsub("\"$", ">", year_data[3])
+			print " - " year_data[2] " at rank " year_data[1] " sold " year_data[3] " units"
+		}
 		print ""
-		print key "::"
-		print by_year[key]
 	}
 	print "================================================"
 	print "PROCESSED " NR " NR OF LINES FOR THIS REPORT"
+}
+
+function cmp_by_entries(i1, v1, i2, v2) {
+	n1 = split(v1, arr1, ";;")
+	n2 = split(v2, arr2, ";;")
+	if (n1 < n2) {
+		return 1 
+	}
+	if (n2 > n1) {
+		return -1 
+	}
+	return 0
 }
